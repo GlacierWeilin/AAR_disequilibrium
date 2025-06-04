@@ -7,4 +7,8 @@ we quantify global glacier disequilibrium in the present-day climate (2014-2023)
 The files include:
 - [`README.md`](README.md) — Description of the repository
 - ['data'](data) - The documentation of the data. Download the large data file (ERA5_MCMC_ba1_2014_2023_corrected.nc) from [Google Drive](https://drive.google.com/file/d/1dm7v9OQjZxV-C2maQvJgCwW4ov6IOO27/view?usp=sharing).
-- ['code']
+- ['code'](code) - The documentation of the code for running simulations, analyzing the data, and creating figures and tables.
+
+## Overview of the code
+- Run the PyGEM script `run_simulation.py`.  
+  This script replaces the original `run_simulation` file in PyGEM and automatically performs glacier climate disequilibrium calculations using both the parameterization approach and the equilibrium experiment.
