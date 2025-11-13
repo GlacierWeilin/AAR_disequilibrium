@@ -25,6 +25,9 @@ The files include:
 - `wgms_disequilibrium.py`. <br>
   Calculate glacier climate disequilbirium based on the WGMS observations.
 
+- `Loibl_snowline_ELA.py`, `run_Loibl_AAR.py`, `Loibl_AAR.py`, and `compile_Loibl_results.ipynb`. <br>
+  Calculate glacier climate disequilbirium based on transient snowline altitude estimates.
+
 - `Figure_*.py` and `Table_*.py`. <br>
   Create the figures and tables
 
