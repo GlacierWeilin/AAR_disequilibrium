@@ -61,11 +61,11 @@ This directory contains the external observational datasets and auxiliary inputs
 
 ### `frontalablation_data`
 
-This directory contains the frontal-ablation observations used in the PyGEM calibration framework and in the assessment of observational coverage for marine-terminating glaciers, Obtained from [PyGEM-OGGM community]([https://github.com/OGGM/oggm/releases/tag/v1.6.3](https://pygem.readthedocs.io/en/latest/)).
+This directory contains the frontal-ablation observations used in the PyGEM calibration framework and in the assessment of observational coverage for marine-terminating glaciers, Obtained from [PyGEM-OGGM community](https://pygem.readthedocs.io/en/latest/).
 
 ### `GlacierMIP3`
 
-This directory contains the published and processed [GlacierMIP3(https://www.science.org/doi/10.1126/science.adu4675)] data used to compare the simulation-based parameterization results with equilibrium experiments.
+This directory contains the published and processed [GlacierMIP3](https://www.science.org/doi/10.1126/science.adu4675) data used to compare the simulation-based parameterization results with equilibrium experiments.
 
 - `fig1b_scatter_by_temp_model.csv` and the corresponding median files contain GlacierMIP3 steady-state glacier-mass estimates for individual models and global warming levels.
 - `lowess_fit_rel_2020_101yr_avg_steady_state_Feb12_2024*.csv` contains the GlacierMIP3 LOWESS fits for the multi-model ensemble and individual glacier models.
