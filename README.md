@@ -10,26 +10,43 @@ The files include:
 - ['code'](code) - The documentation of the code for running simulations, analyzing the data, and creating figures and tables.
 
 ## Overview of the code
-- Run the PyGEM script `run_simulation.py` and `pygem_input.py`. <br>
-  This script replaces the original `run_simulation` file in PyGEM and automatically performs glacier climate disequilibrium calculations using both the parameterization approach and the equilibrium experiment.
 
-- `process_disequilibrium.py`. <br>
-  Compiles the output of the PyGEM runs of several gdirs into one file.
-  
-- `process_disequilibrium_errors.py`. <br>
-  Uses the nearest neighbour interpolation to estimate results for the failed glaciers.
-  
-- `process_disequilibrium_by_region.py`, `process_disequilibrium_by_area.py`, `process_disequilibrium_lat_lon_mean.py`, and `process_disequilibrium_griddata.py`. <br>
-  Analyze the results based on RGI regions, glacier area, and 2°×2° grid resolution.
+The workflow is organized into three main directories:
 
-- `wgms_disequilibrium.py`. <br>
-  Calculate glacier climate disequilbirium based on the WGMS observations.
+### `code_pygem_none`
 
-- `Loibl_snowline_ELA.py`, `run_Loibl_AAR.py`, `Loibl_AAR.py`, and `compile_Loibl_results.ipynb`. <br>
-  Calculate glacier climate disequilbirium based on transient snowline altitude estimates.
+This directory contains the PyGEM simulations without dynamic glacier-geometry evolution (`option_dynamics=None`) and the calculation of multiyear mean accumulation-area ratios (AARs).
 
-- `Figure_*.py` and `Table_*.py`. <br>
-  Create the figures and tables
+- `Run_simulation.py` and `Run_simulation_ERA5.py` run PyGEM for the GCM–SSP experiments and the ERA5-based current-climate experiment, respectively.
+- `CalDisequilibriumPyGEM.py` calculates annual AARs from the simulated equilibrium-line altitudes and the initial glacier geometry, and then derives the mean AAR for each selected climate period.
+- `Run_disequilibrium.py` and `Run_disequilibrium_ERA5.py` apply these calculations to all glaciers in batches and compile the glacier-level results.
+- `submit_*.sh` files submit the corresponding simulations and calculations on an HPC system.
+
+### `code_pygem_oggm`
+
+This directory contains the PyGEM–OGGM simulations with dynamic glacier-geometry evolution (`option_dynamics=OGGM`) used to estimate the steady-state AAR (AAR₀) associated with each glacier.
+
+- `Run_simulation.py` and `Run_simulation_ERA5.py` run the dynamic PyGEM–OGGM simulations for the GCM–SSP experiments and ERA5, exporting both glacier-wide and elevation-bin outputs.
+- `CalDisequilibriumPyGEM.py` calculates annual AARs from the evolving glacier geometry and estimates steady-state AAR from the linear relationship between simulated AAR and glacier-wide total mass balance.
+- `Run_AAR_steady.py` and `Run_AAR_steady_ERA5.py` apply the steady-state AAR calculation to all glaciers in batches and compile the glacier-level results.
+- `submit_*.sh` files submit the corresponding simulations and calculations on an HPC system.
+
+### `code_analysis`
+
+This directory compiles the PyGEM outputs, calculates glacier-climate imbalance and committed glacier changes, performs statistical analyses and observational comparisons, and generates the figures.
+
+- `Compile_results.ipynb` combines the batch and regional PyGEM outputs into analysis-ready datasets, while `Count_failed.ipynb` summarizes missing or failed glacier calculations.
+- `Calculate_regional_stats_median_a.py` and `Calculate_regional_mass_median_a.py` calculate regional and glacier-level statistics using the regional median-α treatment for marine-terminating glaciers lacking frontal-ablation observations.
+- `Calculate_regional_stats_median_k.py` and `Calculate_regional_mass_median_k.py` perform the corresponding calculations using the regional median frontal-ablation scaling parameter *k*.
+- `Calculate_global_*.ipynb`, `Calculate_MT_*.py`, and `Calculate_size_terminus_type_*.py` aggregate results globally and by marine-terminating glacier group, glacier-size class, and terminus type.
+- `Calculate_griddata.ipynb` aggregates glacier-level results to a 2° × 2° grid.
+- `Lowess_fit.py` implements the GlacierMIP3-style LOWESS quantile fitting. `Lowess_fit_mass*.py` and `Lowess_fit_stats*.py` apply the fits to global, regional, glacier-size, and terminus-type results.
+- `Calculate_GlacierMIP3_this_study.ipynb` compares the results with GlacierMIP3 and evaluates the effect of adding this study to the GlacierMIP3 ensemble.
+- `wgms_disequilibrium.py`, `wgms_test.py`, and `Compare_wgms_hugonnet_mb.py` derive and evaluate observation-based glacier-climate imbalance estimates using WGMS and geodetic mass-balance data.
+- `Loibl_snowline_ELA.py`, `Run_Loibl_AAR.py`, `Loibl_snowline_disequilibrium.py`, and `compile_Loibl_results.ipynb` derive glacier-climate imbalance estimates from transient snowline-altitude observations in High Mountain Asia.
+- `Figure_*.py` creates the main, supplementary, and graphical-abstract figures.
+- `submit_*.sh` files submit the analysis and LOWESS calculations on an HPC system.
+
 
 ## Contact
 
