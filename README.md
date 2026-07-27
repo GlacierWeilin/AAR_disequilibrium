@@ -77,7 +77,6 @@ This directory contains the published and processed [GlacierMIP3](https://www.sc
 
 This directory contains the compiled and post-processed results generated in this study.
 
-- `PyGEM_glacier_stats_*.nc` contains glacier-level AAR, steady-state AAR, α, glacier geometry, and related attributes compiled by RGI region.
 - `PyGEM_glacier_mass_*.csv` contains steady-state area, volume, mass, and committed mass-change estimates aggregated globally, regionally, by glacier-size class, and by terminus type.
 - Files containing `MT` report results for marine-terminating glaciers, including separate results for glaciers inside and outside the Antarctic and Subantarctic and for glaciers with or without frontal-ablation observations.
 - Files ending in `median_a` use the regional median-α approach for marine-terminating glaciers lacking observations; files ending in `median_k` instead use the regional median frontal-ablation scaling parameter *k*.
