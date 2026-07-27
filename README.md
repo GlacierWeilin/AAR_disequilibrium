@@ -53,8 +53,8 @@ The input, reference, and processed data are organized into four main directorie
 This directory contains the external observational datasets and auxiliary inputs used for model evaluation and observation-based calculations.
 
 - `temp_ch_ipcc_ar6_isimip3b.csv` provides the global temperature changes associated with the GCM–SSP experiments, obtained from GlacierMIP3.
-- `00_rgi60_regions/`, `rgi62_stats.h5`, and the glacier-ID lookup tables provide glacier-inventory attributes, regional boundaries, and links between glacier identifiers, obtained from RGI 6.2.
-- `DOI-WGMS-FoG-2026-02-10/` contains the WGMS Fluctuations of Glaciers database, while the `WGMS_*.csv` files contain the extracted, processed, and model-comparison results used in the WGMS analysis.
+- `00_rgi60_regions/`, `rgi62_stats.h5`, and the glacier-ID lookup tables provide glacier-inventory attributes, regional boundaries, and links between glacier identifiers, obtained from [RGI 6.2](https://doi.org/10.7265/4m1f-gd79).
+- `DOI-WGMS-FoG-2026-02-10/` contains the [WGMS](https://doi.org/10.5904/wgms-fog-2026-02-10) Fluctuations of Glaciers database, while the `WGMS_*.csv` files contain the extracted, processed, and model-comparison results used in the WGMS analysis.
 - `TSLA-HMA-2021-12-filtered.nc`, `ELA_1985_2021_Loibl.nc`, and `AAR_1985_2021_Loibl.csv` contain the transient snowline, equilibrium-line altitude, and derived AAR data for High Mountain Asia.
 - `MB_1985_2021_Dussaillant.csv` and `Loibl_Dussaillant_disequilibrium.csv` contain the mass-balance data and the resulting observation-based glacier-climate imbalance estimates.
 - `wgms-amce-2025-02b/` and `WGMS_Hugonnet_2000_2020_comparison.csv` provide annual glacier mass-change data and the comparison between glaciological and geodetic mass-balance estimates.
